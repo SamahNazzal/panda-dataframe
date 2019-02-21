@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+import numpy as np
+import pandas as pd
+rate = 10
+dt = 1/rate
+freq = 1.5
+omega = 2*np.pi*freq
+t = np.arange(0,10,dt)
+y = np.sin(omega*t)
+z = np.cos(omega*t)
+
+df = pd.DataFrame({'Time':t, 'YVals':y, 'ZVals':z})
+
+print(df.head())
+
+
+outfile = 'out.txt'
+df[10:16][['YVals', 'ZVals']].to_csv(outfile)
+print('Data written to {10}'.format(outfile))
+input('Done')
+
+
+# In[ ]:
+
+
+
+
